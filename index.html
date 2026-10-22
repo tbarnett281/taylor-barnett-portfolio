@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,85 +7,850 @@
 <meta name="theme-color" content="#090d16">
 <meta name="description" content="Taylor Barnett — production operations, infrastructure reliability, automation, and AI-scale data center systems.">
 <title>Taylor Barnett — Infrastructure & Reliability Engineer</title>
+
 <style>
-:root{--bg:#090d16;--panel:#101827;--panel2:#0d1421;--line:#243147;--text:#edf3fb;--muted:#a1b0c5;--accent:#77f2c4;--blue:#8ab4ff;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;--sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% -10%,#1a3151 0,transparent 38%),var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6}a{color:inherit;text-decoration:none}button,a{ -webkit-tap-highlight-color:transparent}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}.mono{font-family:var(--mono);letter-spacing:.02em}.eyebrow{color:var(--accent);font:12px var(--mono);text-transform:uppercase;letter-spacing:.14em}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12}.brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:-.03em}.brand-mark{height:34px;width:34px;border:1px solid #77f2c4a8;border-radius:9px;display:grid;place-items:center;color:var(--accent);font:700 14px var(--mono);box-shadow:0 0 25px #77f2c41c}.navlinks{display:flex;gap:26px;color:var(--muted);font-size:13px}.navlinks a:hover{color:var(--accent)}.nav-cta{border:1px solid #77f2c46b;border-radius:7px;padding:10px 14px;color:var(--accent);font:12px var(--mono)}.hero{padding:92px 0 72px;display:grid;grid-template-columns:1.35fr .65fr;gap:52px;align-items:center}.hero h1{font-size:clamp(42px,6vw,72px);letter-spacing:-.065em;line-height:1.02;margin:18px 0 22px;max-width:800px}.hero h1 span{color:var(--accent)}.lead{font-size:18px;color:#bdc9d9;max-width:660px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{padding:13px 17px;border-radius:7px;font-weight:650;font-size:13px;border:1px solid var(--line);display:inline-flex;gap:10px;align-items:center;cursor:pointer}.btn.primary{background:var(--accent);color:#08120f;border-color:var(--accent)}.btn.secondary{background:#ffffff05;color:var(--text)}.btn:hover{transform:translateY(-1px)}.status-card{background:linear-gradient(145deg,#132338,#0c121e);border:1px solid #2b405b;border-radius:14px;padding:23px;box-shadow:0 20px 80px #0003}.status-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font:11px var(--mono);padding-bottom:17px;border-bottom:1px solid var(--line)}.dot{height:7px;width:7px;display:inline-block;background:var(--accent);border-radius:50%;box-shadow:0 0 12px var(--accent);margin-right:7px}.terminal{font:12px/2 var(--mono);color:#b5c6dc;padding:17px 0}.terminal .ok{color:var(--accent)}.terminal .key{color:var(--blue)}.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mini{background:#080e19a8;border:1px solid #233148;border-radius:8px;padding:13px}.mini strong{display:block;font-size:23px;letter-spacing:-.05em}.mini span{font:10px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.section{padding:76px 0;border-top:1px solid #ffffff0c}.section-head{display:flex;justify-content:space-between;gap:25px;align-items:end;margin-bottom:30px}.section h2{font-size:clamp(28px,4vw,42px);letter-spacing:-.05em;line-height:1.1;margin:10px 0}.section-intro{color:var(--muted);max-width:510px;margin:0}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.metric{padding:22px;border:1px solid var(--line);background:linear-gradient(150deg,#111c2b,#0c121e);border-radius:10px}.metric strong{font-size:clamp(28px,4vw,40px);letter-spacing:-.06em;display:block;line-height:1.2}.metric strong em{font-style:normal;color:var(--accent)}.metric p{font-size:12px;color:var(--muted);margin:10px 0 0}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:24px;position:relative;overflow:hidden}.card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(var(--accent),transparent);opacity:.7}.card-head{display:flex;justify-content:space-between;gap:15px;align-items:start}.card h3{font-size:19px;letter-spacing:-.03em;margin:8px 0}.tag{font:10px var(--mono);color:var(--accent);border:1px solid #77f2c444;border-radius:4px;padding:4px 7px;white-space:nowrap}.card p,.card li{font-size:13px;color:var(--muted)}.card ul{padding-left:18px;margin-bottom:0}.card li{padding:4px 0}.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.skillbox{border:1px solid var(--line);border-radius:10px;background:#0e1624;padding:20px}.skillbox h3{font-size:14px;margin:0 0 14px}.pills{display:flex;gap:7px;flex-wrap:wrap}.pill{font:11px var(--mono);padding:7px 9px;background:#192538;border:1px solid #2b3c53;color:#c4d2e3;border-radius:5px}.timeline{border-left:1px solid #34435b;margin-left:8px;padding-left:25px}.role{padding:0 0 27px;position:relative}.role:before{content:"";position:absolute;width:9px;height:9px;background:var(--accent);border-radius:50%;left:-30px;top:8px;box-shadow:0 0 12px #77f2c455}.role h3{margin:0;font-size:18px}.role .meta{font:11px var(--mono);color:var(--accent);margin:5px 0 10px}.role p{color:var(--muted);font-size:13px;max-width:790px;margin:0}.callout{display:flex;justify-content:space-between;align-items:center;gap:30px;border:1px solid #38516a;border-radius:13px;background:radial-gradient(ellipse at 100% 0%,#1c3b46,transparent 55%),#101a28;padding:32px}.callout h2{margin:7px 0 10px}.callout p{color:var(--muted);max-width:620px;margin:0}.footer{padding:28px 0 40px;display:flex;justify-content:space-between;gap:20px;color:var(--muted);font:11px var(--mono)}.copy{background:none;border:none;color:var(--muted);cursor:pointer;font:inherit}.copy:hover{color:var(--accent)}.small-note{font-size:11px;color:#8292a9;margin-top:16px}
-@media(max-width:800px){.hero{grid-template-columns:1fr;padding:65px 0 55px;gap:30px}.status-card{max-width:520px}.metrics{grid-template-columns:repeat(2,1fr)}.skills{grid-template-columns:1fr 1fr}.navlinks{display:none}.section{padding:56px 0}.section-head{display:block}.section-intro{margin-top:14px}.callout{display:block}.callout .btn{margin-top:20px}}
-@media(max-width:540px){.wrap{width:min(100% - 28px,1120px)}.hero h1{font-size:44px}.lead{font-size:16px}.cards,.skills{grid-template-columns:1fr}.metrics{gap:8px}.metric{padding:16px}.metric p{font-size:11px}.footer{display:block}.footer span{display:block;margin-top:8px}.nav-cta{padding:8px 10px}.section-head{margin-bottom:22px}}
+:root {
+  --bg: #090d16;
+  --panel: #101827;
+  --line: #243147;
+  --text: #edf3fb;
+  --muted: #a1b0c5;
+  --accent: #77f2c4;
+  --blue: #8ab4ff;
+  --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: radial-gradient(ellipse at 75% -10%, #1a3151 0, transparent 38%), var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+a, button { -webkit-tap-highlight-color: transparent; }
+
+.wrap {
+  width: min(1120px, calc(100% - 40px));
+  margin: auto;
+}
+
+.mono {
+  font-family: var(--mono);
+  letter-spacing: .02em;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font: 12px var(--mono);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+}
+
+.nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid #ffffff12;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  letter-spacing: -.03em;
+}
+
+.brand-mark {
+  height: 34px;
+  width: 34px;
+  border: 1px solid #77f2c4a8;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  font: 700 14px var(--mono);
+  box-shadow: 0 0 25px #77f2c41c;
+}
+
+.navlinks {
+  display: flex;
+  gap: 26px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.navlinks a:hover { color: var(--accent); }
+
+.nav-cta {
+  border: 1px solid #77f2c46b;
+  border-radius: 7px;
+  padding: 10px 14px;
+  color: var(--accent);
+  font: 12px var(--mono);
+  white-space: nowrap;
+}
+
+.hero {
+  padding: 92px 0 72px;
+  display: grid;
+  grid-template-columns: 1.35fr .65fr;
+  gap: 52px;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 6vw, 72px);
+  letter-spacing: -.065em;
+  line-height: 1.02;
+  margin: 18px 0 22px;
+  max-width: 800px;
+}
+
+.hero h1 span { color: var(--accent); }
+
+.lead {
+  font-size: 18px;
+  color: #bdc9d9;
+  max-width: 660px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 13px 17px;
+  border-radius: 7px;
+  font-weight: 650;
+  font-size: 13px;
+  border: 1px solid var(--line);
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+  transition: transform .2s ease;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #08120f;
+  border-color: var(--accent);
+}
+
+.btn.secondary {
+  background: #ffffff05;
+  color: var(--text);
+}
+
+.btn:hover { transform: translateY(-1px); }
+
+.status-card {
+  background: linear-gradient(145deg, #132338, #0c121e);
+  border: 1px solid #2b405b;
+  border-radius: 14px;
+  padding: 23px;
+  box-shadow: 0 20px 80px #0003;
+}
+
+.status-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--muted);
+  font: 11px var(--mono);
+  padding-bottom: 17px;
+  border-bottom: 1px solid var(--line);
+}
+
+.dot {
+  height: 7px;
+  width: 7px;
+  display: inline-block;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--accent);
+  margin-right: 7px;
+}
+
+.terminal {
+  font: 12px/2 var(--mono);
+  color: #b5c6dc;
+  padding: 17px 0;
+  overflow-wrap: anywhere;
+}
+
+.terminal .ok { color: var(--accent); }
+.terminal .key { color: var(--blue); }
+
+.mini-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.mini {
+  background: #080e19a8;
+  border: 1px solid #233148;
+  border-radius: 8px;
+  padding: 13px;
+}
+
+.mini strong {
+  display: block;
+  font-size: 23px;
+  letter-spacing: -.05em;
+}
+
+.mini span {
+  font: 10px var(--mono);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.section {
+  padding: 76px 0;
+  border-top: 1px solid #ffffff0c;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  align-items: end;
+  margin-bottom: 30px;
+}
+
+.section h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  letter-spacing: -.05em;
+  line-height: 1.1;
+  margin: 10px 0;
+}
+
+.section-intro {
+  color: var(--muted);
+  max-width: 510px;
+  margin: 0;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.metric {
+  padding: 22px;
+  border: 1px solid var(--line);
+  background: linear-gradient(150deg, #111c2b, #0c121e);
+  border-radius: 10px;
+}
+
+.metric strong {
+  font-size: clamp(28px, 4vw, 40px);
+  letter-spacing: -.06em;
+  display: block;
+  line-height: 1.2;
+}
+
+.metric strong em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.metric p {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 10px 0 0;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(var(--accent), transparent);
+  opacity: .7;
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: start;
+}
+
+.card h3 {
+  font-size: 19px;
+  letter-spacing: -.03em;
+  margin: 8px 0;
+}
+
+.tag {
+  font: 10px var(--mono);
+  color: var(--accent);
+  border: 1px solid #77f2c444;
+  border-radius: 4px;
+  padding: 4px 7px;
+  white-space: nowrap;
+}
+
+.card p, .card li {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.card ul {
+  padding-left: 18px;
+  margin-bottom: 0;
+}
+
+.card li { padding: 4px 0; }
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.skillbox {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #0e1624;
+  padding: 20px;
+}
+
+.skillbox h3 {
+  font-size: 14px;
+  margin: 0 0 14px;
+}
+
+.pills {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  font: 11px var(--mono);
+  padding: 7px 9px;
+  background: #192538;
+  border: 1px solid #2b3c53;
+  color: #c4d2e3;
+  border-radius: 5px;
+}
+
+.timeline {
+  border-left: 1px solid #34435b;
+  margin-left: 8px;
+  padding-left: 25px;
+}
+
+.role {
+  padding: 0 0 27px;
+  position: relative;
+}
+
+.role:before {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: var(--accent);
+  border-radius: 50%;
+  left: -30px;
+  top: 8px;
+  box-shadow: 0 0 12px #77f2c455;
+}
+
+.role h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.role .meta {
+  font: 11px var(--mono);
+  color: var(--accent);
+  margin: 5px 0 10px;
+}
+
+.role p {
+  color: var(--muted);
+  font-size: 13px;
+  max-width: 790px;
+  margin: 0;
+}
+
+.callout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  border: 1px solid #38516a;
+  border-radius: 13px;
+  background: radial-gradient(ellipse at 100% 0%, #1c3b46, transparent 55%), #101a28;
+  padding: 32px;
+}
+
+.callout h2 { margin: 7px 0 10px; }
+
+.callout p {
+  color: var(--muted);
+  max-width: 620px;
+  margin: 0;
+}
+
+.contact-details {
+  margin-top: 14px !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
+.contact-details a {
+  color: var(--accent);
+  overflow-wrap: anywhere;
+}
+
+.footer {
+  padding: 28px 0 40px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--muted);
+  font: 11px var(--mono);
+}
+
+.copy {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+}
+
+.copy:hover { color: var(--accent); }
+
+.small-note {
+  font-size: 11px;
+  color: #8292a9;
+  margin-top: 16px;
+}
+
+@media(max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 65px 0 55px;
+    gap: 30px;
+  }
+
+  .status-card { max-width: 520px; }
+  .metrics { grid-template-columns: repeat(2, 1fr); }
+  .skills { grid-template-columns: 1fr 1fr; }
+  .navlinks { display: none; }
+  .section { padding: 56px 0; }
+  .section-head { display: block; }
+  .section-intro { margin-top: 14px; }
+  .callout { display: block; }
+  .callout .btn { margin-top: 20px; }
+}
+
+@media(max-width: 540px) {
+  .wrap { width: min(100% - 28px, 1120px); }
+  .hero h1 { font-size: 44px; }
+  .lead { font-size: 16px; }
+  .cards, .skills { grid-template-columns: 1fr; }
+  .metrics { gap: 8px; }
+  .metric { padding: 16px; }
+  .metric p { font-size: 11px; }
+  .footer { display: block; }
+  .footer span { display: block; margin-top: 8px; }
+  .nav-cta { padding: 8px 10px; }
+  .section-head { margin-bottom: 22px; }
+  .callout { padding: 22px; }
+}
 </style>
 </head>
+
 <body>
 <header class="wrap nav">
-  <a class="brand" href="#top" aria-label="Taylor Barnett home"><span class="brand-mark">TB</span><span>TAYLOR BARNETT<span style="color:var(--accent)">.</span></span></a>
-  <nav class="navlinks"><a href="#impact">Impact</a><a href="#work">Experience</a><a href="#systems">Technical</a><a href="#approach">Approach</a></nav>
-  <a class="nav-cta" href="mailto:YOUR_EMAIL@example.com?subject=Infrastructure%20Engineering%20Opportunity">LET'S TALK ↗</a>
+  <a class="brand" href="#top" aria-label="Taylor Barnett home">
+    <span class="brand-mark">TB</span>
+    <span>TAYLOR BARNETT<span style="color:var(--accent)">.</span></span>
+  </a>
+
+  <nav class="navlinks" aria-label="Main navigation">
+    <a href="#impact">Impact</a>
+    <a href="#work">Experience</a>
+    <a href="#systems">Technical</a>
+    <a href="#approach">Approach</a>
+  </nav>
+
+  <a class="nav-cta" href="mailto:tbarnett281@gmail.com?subject=Infrastructure%20Engineering%20Opportunity">LET'S TALK ↗</a>
 </header>
+
 <main id="top">
-<section class="wrap hero">
-  <div>
-    <div class="eyebrow">Production engineering · Infrastructure reliability · Automation</div>
-    <h1>Keeping critical infrastructure <span>reliable at scale.</span></h1>
-    <p class="lead">I’m Taylor Barnett, an infrastructure and production operations engineer at Meta. I lead engineers, automate operational work, and support data-center systems powering large-scale compute.</p>
-    <div class="hero-actions"><a class="btn primary" href="#impact">Explore my impact <span>↓</span></a><a class="btn secondary" href="mailto:YOUR_EMAIL@example.com?subject=Engineering%20Opportunity">Contact me ↗</a></div>
-    <p class="small-note">IC5 Production Operations Engineer · Team leadership · Mission-critical systems</p>
-  </div>
-  <aside class="status-card" aria-label="Infrastructure summary">
-    <div class="status-top"><span><i class="dot"></i> SYSTEM PROFILE</span><span>TB / 001</span></div>
-    <div class="terminal"><div><span class="key">$</span> profile --load taylor</div><div><span class="key">role</span> = "Production Operations"</div><div><span class="key">focus</span> = "Reliability + Automation"</div><div><span class="key">scale</span> = "AI / data center"</div><div><span class="key">mode</span> = <span class="ok">"measure · automate · improve"</span></div><div><span class="key">$</span> <span class="ok">ready_for_next_challenge ▊</span></div></div>
-    <div class="mini-grid"><div class="mini"><strong>15M+</strong><span>Server fleet scale</span></div><div class="mini"><strong>300+ MW</strong><span>Capacity supported</span></div></div>
-  </aside>
-</section>
+  <section class="wrap hero">
+    <div>
+      <div class="eyebrow">Production engineering · Infrastructure reliability · Automation</div>
+      <h1>Keeping critical infrastructure <span>reliable at scale.</span></h1>
 
-<section class="section" id="impact"><div class="wrap">
-  <div class="section-head"><div><div class="eyebrow">01 / Measurable outcomes</div><h2>Engineering impact, not just activity.</h2></div><p class="section-intro">Operational excellence should be visible in the numbers: less toil, faster workflows, and repeatable launches.</p></div>
-  <div class="metrics">
-    <article class="metric"><strong>15M<em>+</em></strong><p>Servers in the fleet supported by large-scale tooling and operational processes.</p></article>
-    <article class="metric"><strong>300<em>+ MW</em></strong><p>Data-center capacity supported across mission-critical infrastructure.</p></article>
-    <article class="metric"><strong>100K<em>+</em></strong><p>Tasks handled through autonomous remediation workflows.</p></article>
-    <article class="metric"><strong>50<em>%</em></strong><p>Reduction in ticket queue time after a SQL-driven process improvement.</p></article>
-  </div>
-</div></section>
+      <p class="lead">
+        I’m Taylor Barnett, an infrastructure and production operations engineer at Meta.
+        I lead engineers, automate operational work, and support data-center systems
+        powering large-scale compute.
+      </p>
 
-<section class="section" id="work"><div class="wrap">
-  <div class="section-head"><div><div class="eyebrow">02 / Selected work</div><h2>Build systems that scale.</h2></div><p class="section-intro">A blend of people leadership, operational automation, fleet health, and data-center execution.</p></div>
-  <div class="cards">
-    <article class="card"><div class="card-head"><div><div class="eyebrow">Automation & reliability</div><h3>Reduce repetitive operational toil</h3></div><span class="tag">100K+ TASKS</span></div><p>Helped scale autonomous remediation across infrastructure operations, shifting recurring work from manual intervention toward repeatable workflows.</p><ul><li>Design operations around repeatability and measurable outcomes.</li><li>Use automation to improve consistency and free engineers for higher-value work.</li></ul></article>
-    <article class="card"><div class="card-head"><div><div class="eyebrow">Data & workflow optimization</div><h3>Cut ticket queue time in half</h3></div><span class="tag">−50% QUEUE</span></div><p>Improved a SQL-backed operational workflow, reducing ticket queue time by 50% within three months; the improvement was deployed globally.</p><ul><li>Identify bottlenecks with operational data.</li><li>Turn a local improvement into a repeatable global process.</li></ul></article>
-    <article class="card"><div class="card-head"><div><div class="eyebrow">Technical leadership</div><h3>Build teams that can execute</h3></div><span class="tag">6 ENGINEERS</span></div><p>Lead a team of six engineers while supporting large-scale, high-availability infrastructure operations.</p><ul><li>Recruit, onboard, and develop engineers.</li><li>Align execution, operational standards, and incident response.</li></ul></article>
-    <article class="card"><div class="card-head"><div><div class="eyebrow">Data-center delivery</div><h3>Make complex launches repeatable</h3></div><span class="tag">MULTI-SITE</span></div><p>Supported data-center build-outs and go-live readiness, including recruiting and training teams across three locations.</p><ul><li>Coordinate technical readiness across teams.</li><li>Create launch plans that can be reused as regional best practice.</li></ul></article>
-  </div>
-</div></section>
+      <div class="hero-actions">
+        <a class="btn primary" href="#impact">Explore my impact <span>↓</span></a>
+        <a class="btn secondary" href="mailto:tbarnett281@gmail.com?subject=Engineering%20Opportunity">Email me ↗</a>
+        <a class="btn secondary" href="tel:+17132135618">Call (713) 213-5618</a>
+      </div>
 
-<section class="section" id="systems"><div class="wrap">
-  <div class="section-head"><div><div class="eyebrow">03 / Technical toolkit</div><h2>Operate across the stack.</h2></div><p class="section-intro">The goal is not to collect tools. It’s to use the right tools to make infrastructure safer, more observable, and easier to operate.</p></div>
-  <div class="skills">
-    <article class="skillbox"><h3>Automation & scripting</h3><div class="pills"><span class="pill">Python</span><span class="pill">Bash</span><span class="pill">Operational tooling</span><span class="pill">Autonomous remediation</span></div></article>
-    <article class="skillbox"><h3>Systems & infrastructure</h3><div class="pills"><span class="pill">Linux</span><span class="pill">Data centers</span><span class="pill">Server fleet operations</span><span class="pill">GPU infrastructure</span><span class="pill">Liquid cooling</span></div></article>
-    <article class="skillbox"><h3>Reliability & operations</h3><div class="pills"><span class="pill">Incident management</span><span class="pill">Troubleshooting</span><span class="pill">Fleet health</span><span class="pill">24/7 operations</span></div></article>
-    <article class="skillbox"><h3>Data & analysis</h3><div class="pills"><span class="pill">SQL</span><span class="pill">Queue analysis</span><span class="pill">Operational metrics</span><span class="pill">Process improvement</span></div></article>
-    <article class="skillbox"><h3>Leadership & delivery</h3><div class="pills"><span class="pill">Team leadership</span><span class="pill">Hiring & onboarding</span><span class="pill">Technical execution</span><span class="pill">Launch readiness</span></div></article>
-    <article class="skillbox"><h3>Engineering mindset</h3><div class="pills"><span class="pill">Automation-first</span><span class="pill">Root-cause focus</span><span class="pill">Scalable operations</span><span class="pill">Continuous improvement</span></div></article>
-  </div>
-  <p class="small-note">This skills list is based on the experience shared for this portfolio. Add specific tools, cloud platforms, CI/CD systems, and certifications only where you have hands-on experience.</p>
-</div></section>
+      <p class="small-note">IC5 Production Operations Engineer · Team leadership · Mission-critical systems</p>
+    </div>
 
-<section class="section" id="approach"><div class="wrap">
-  <div class="section-head"><div><div class="eyebrow">04 / Experience & philosophy</div><h2>Calm execution under real-world constraints.</h2></div></div>
-  <div class="timeline">
-    <article class="role"><h3>Meta — IC5 Production Operations Engineer</h3><div class="meta">INFRASTRUCTURE OPERATIONS · TEAM LEADERSHIP · LARGE-SCALE COMPUTE</div><p>Lead six engineers and support 300+ MW of data-center capacity across a server fleet exceeding 15 million systems. Focus areas include operational automation, reliability, incident response, GPU infrastructure, and hardware troubleshooting.</p></article>
-    <article class="role"><h3>Data-center delivery & operational improvement</h3><div class="meta">MULTI-LOCATION EXECUTION</div><p>Helped stand up data-center locations, recruit and train teams, and develop go-live plans. Improved operational workflows using SQL and helped establish reusable practices for broader deployment.</p></article>
-  </div>
-  <div class="callout"><div><div class="eyebrow">Open to the next hard problem</div><h2>Let’s make infrastructure more reliable.</h2><p>I’m interested in senior infrastructure, SRE, production engineering, and AI/HPC platform roles where automation, operational judgment, and technical leadership can have measurable impact.</p></div><a class="btn primary" href="mailto:YOUR_EMAIL@example.com?subject=Infrastructure%20Engineering%20Opportunity">Start a conversation ↗</a></div>
-</div></section>
+    <aside class="status-card" aria-label="Infrastructure summary">
+      <div class="status-top">
+        <span><i class="dot"></i> SYSTEM PROFILE</span>
+        <span>TB / 001</span>
+      </div>
+
+      <div class="terminal">
+        <div><span class="key">$</span> profile --load taylor</div>
+        <div><span class="key">role</span> = "Production Operations"</div>
+        <div><span class="key">focus</span> = "Reliability + Automation"</div>
+        <div><span class="key">scale</span> = "AI / data center"</div>
+        <div><span class="key">mode</span> = <span class="ok">"measure · automate · improve"</span></div>
+        <div><span class="key">$</span> <span class="ok">ready_for_next_challenge ▊</span></div>
+      </div>
+
+      <div class="mini-grid">
+        <div class="mini"><strong>15K+</strong><span>Servers supported</span></div>
+        <div class="mini"><strong>Multi-site</strong><span>Data-center operations</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="section" id="impact">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">01 / Measurable outcomes</div>
+          <h2>Engineering impact, not just activity.</h2>
+        </div>
+        <p class="section-intro">
+          Operational excellence should be visible in the numbers: less toil,
+          faster workflows, and repeatable launches.
+        </p>
+      </div>
+
+      <div class="metrics">
+        <article class="metric">
+          <strong>15K<em>+</em></strong>
+          <p>Servers supported through large-scale tooling and operational processes.</p>
+        </article>
+
+        <article class="metric">
+          <strong>Multi-site</strong>
+          <p>Data-center delivery and mission-critical infrastructure operations.</p>
+        </article>
+
+        <article class="metric">
+          <strong>100K<em>+</em></strong>
+          <p>Tasks handled through autonomous remediation workflows.</p>
+        </article>
+
+        <article class="metric">
+          <strong>50<em>%</em></strong>
+          <p>Reduction in ticket queue time after a SQL-driven process improvement.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">02 / Selected work</div>
+          <h2>Build systems that scale.</h2>
+        </div>
+        <p class="section-intro">
+          A blend of people leadership, operational automation, fleet health,
+          and data-center execution.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="card-head">
+            <div>
+              <div class="eyebrow">Automation & reliability</div>
+              <h3>Reduce repetitive operational toil</h3>
+            </div>
+            <span class="tag">100K+ TASKS</span>
+          </div>
+          <p>
+            Helped scale autonomous remediation across infrastructure operations,
+            shifting recurring work from manual intervention toward repeatable workflows.
+          </p>
+          <ul>
+            <li>Design operations around repeatability and measurable outcomes.</li>
+            <li>Use automation to improve consistency and free engineers for higher-value work.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <div>
+              <div class="eyebrow">Data & workflow optimization</div>
+              <h3>Cut ticket queue time in half</h3>
+            </div>
+            <span class="tag">−50% QUEUE</span>
+          </div>
+          <p>
+            Improved a SQL-backed operational workflow, reducing ticket queue time
+            by 50% within three months; the improvement was deployed globally.
+          </p>
+          <ul>
+            <li>Identify bottlenecks with operational data.</li>
+            <li>Turn a local improvement into a repeatable global process.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <div>
+              <div class="eyebrow">Technical leadership</div>
+              <h3>Build teams that can execute</h3>
+            </div>
+            <span class="tag">6 ENGINEERS</span>
+          </div>
+          <p>
+            Lead a team of six engineers while supporting large-scale,
+            high-availability infrastructure operations.
+          </p>
+          <ul>
+            <li>Recruit, onboard, and develop engineers.</li>
+            <li>Align execution, operational standards, and incident response.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <div>
+              <div class="eyebrow">Data-center delivery</div>
+              <h3>Make complex launches repeatable</h3>
+            </div>
+            <span class="tag">MULTI-SITE</span>
+          </div>
+          <p>
+            Supported data-center build-outs and go-live readiness, including
+            recruiting and training teams across three locations.
+          </p>
+          <ul>
+            <li>Coordinate technical readiness across teams.</li>
+            <li>Create launch plans that can be reused as regional best practice.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="systems">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">03 / Technical toolkit</div>
+          <h2>Operate across the stack.</h2>
+        </div>
+        <p class="section-intro">
+          The goal is not to collect tools. It’s to use the right tools to make
+          infrastructure safer, more observable, and easier to operate.
+        </p>
+      </div>
+
+      <div class="skills">
+        <article class="skillbox">
+          <h3>Automation & scripting</h3>
+          <div class="pills">
+            <span class="pill">Python</span>
+            <span class="pill">Bash</span>
+            <span class="pill">Operational tooling</span>
+            <span class="pill">Autonomous remediation</span>
+          </div>
+        </article>
+
+        <article class="skillbox">
+          <h3>Systems & infrastructure</h3>
+          <div class="pills">
+            <span class="pill">Linux</span>
+            <span class="pill">Data centers</span>
+            <span class="pill">Server fleet operations</span>
+            <span class="pill">GPU infrastructure</span>
+            <span class="pill">Liquid cooling</span>
+          </div>
+        </article>
+
+        <article class="skillbox">
+          <h3>Reliability & operations</h3>
+          <div class="pills">
+            <span class="pill">Incident management</span>
+            <span class="pill">Troubleshooting</span>
+            <span class="pill">Fleet health</span>
+            <span class="pill">24/7 operations</span>
+          </div>
+        </article>
+
+        <article class="skillbox">
+          <h3>Data & analysis</h3>
+          <div class="pills">
+            <span class="pill">SQL</span>
+            <span class="pill">Queue analysis</span>
+            <span class="pill">Operational metrics</span>
+            <span class="pill">Process improvement</span>
+          </div>
+        </article>
+
+        <article class="skillbox">
+          <h3>Leadership & delivery</h3>
+          <div class="pills">
+            <span class="pill">Team leadership</span>
+            <span class="pill">Hiring & onboarding</span>
+            <span class="pill">Technical execution</span>
+            <span class="pill">Launch readiness</span>
+          </div>
+        </article>
+
+        <article class="skillbox">
+          <h3>Engineering mindset</h3>
+          <div class="pills">
+            <span class="pill">Automation-first</span>
+            <span class="pill">Root-cause focus</span>
+            <span class="pill">Scalable operations</span>
+            <span class="pill">Continuous improvement</span>
+          </div>
+        </article>
+      </div>
+
+      <p class="small-note">
+        This skills list is based on the experience shared for this portfolio.
+        Add specific tools, cloud platforms, CI/CD systems, and certifications
+        only where you have hands-on experience.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="approach">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">04 / Experience & philosophy</div>
+          <h2>Calm execution under real-world constraints.</h2>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <article class="role">
+          <h3>Meta — IC5 Production Operations Engineer</h3>
+          <div class="meta">INFRASTRUCTURE OPERATIONS · TEAM LEADERSHIP · LARGE-SCALE COMPUTE</div>
+          <p>
+            Lead six engineers and support large-scale data-center operations
+            across a fleet of more than 15,000 servers. Focus areas include
+            operational automation, reliability, incident response, GPU
+            infrastructure, and hardware troubleshooting.
+          </p>
+        </article>
+
+        <article class="role">
+          <h3>Data-center delivery & operational improvement</h3>
+          <div class="meta">MULTI-LOCATION EXECUTION</div>
+          <p>
+            Helped stand up data-center locations, recruit and train teams,
+            and develop go-live plans. Improved operational workflows using SQL
+            and helped establish reusable practices for broader deployment.
+          </p>
+        </article>
+      </div>
+
+      <div class="callout">
+        <div>
+          <div class="eyebrow">Open to the next hard problem</div>
+          <h2>Let’s make infrastructure more reliable.</h2>
+          <p>
+            I’m interested in senior infrastructure, SRE, production engineering,
+            and AI/HPC platform roles where automation, operational judgment,
+            and technical leadership can have measurable impact.
+          </p>
+
+          <p class="contact-details">
+            <a href="tel:+17132135618">(713) 213-5618</a>
+            <a href="mailto:tbarnett281@gmail.com">tbarnett281@gmail.com</a>
+          </p>
+        </div>
+
+        <a class="btn primary" href="mailto:tbarnett281@gmail.com?subject=Infrastructure%20Engineering%20Opportunity">
+          Start a conversation ↗
+        </a>
+      </div>
+    </div>
+  </section>
 </main>
-<footer class="wrap footer"><span>© <span id="year"></span> Taylor Barnett · Built for reliability.</span><span>INFRASTRUCTURE / AUTOMATION / SCALE <button class="copy" id="copyEmail" title="Copy email address">· COPY EMAIL</button></span></footer>
+
+<footer class="wrap footer">
+  <span>© <span id="year"></span> Taylor Barnett · Built for reliability.</span>
+  <span>
+    INFRASTRUCTURE / AUTOMATION / SCALE
+    <button class="copy" id="copyEmail" title="Copy email address">· COPY EMAIL</button>
+  </span>
+</footer>
+
 <script>
-document.getElementById('year').textContent = new Date().getFullYear();
-document.getElementById('copyEmail').addEventListener('click', async () => {
-  const email = 'YOUR_EMAIL@example.com';
-  try { await navigator.clipboard.writeText(email); document.getElementById('copyEmail').textContent = '· COPIED'; }
-  catch { window.location.href = 'mailto:' + email; }
+document.getElementById("year").textContent = new Date().getFullYear();
+
+document.getElementById("copyEmail").addEventListener("click", async () => {
+  const email = "tbarnett281@gmail.com";
+
+  try {
+    await navigator.clipboard.writeText(email);
+    document.getElementById("copyEmail").textContent = "· COPIED";
+  } catch {
+    window.location.href = "mailto:" + email;
+  }
 });
 </script>
+
 </body>
 </html>
