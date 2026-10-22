@@ -1,506 +1,468 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#090d16">
-<meta name="description" content="Taylor Barnett — production operations, infrastructure reliability, automation, and AI-scale data center systems.">
-<title>Taylor Barnett — Infrastructure & Reliability Engineer</title>
-
-<style>
-:root {
-  --bg: #090d16;
-  --panel: #101827;
-  --line: #243147;
-  --text: #edf3fb;
-  --muted: #a1b0c5;
-  --accent: #77f2c4;
-  --blue: #8ab4ff;
-  --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
-
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  background: radial-gradient(ellipse at 75% -10%, #1a3151 0, transparent 38%), var(--bg);
-  color: var(--text);
-  font-family: var(--sans);
-  line-height: 1.6;
-}
-
-a { color: inherit; text-decoration: none; }
-a, button { -webkit-tap-highlight-color: transparent; }
-
-.wrap {
-  width: min(1120px, calc(100% - 40px));
-  margin: auto;
-}
-
-.mono {
-  font-family: var(--mono);
-  letter-spacing: .02em;
-}
-
-.eyebrow {
-  color: var(--accent);
-  font: 12px var(--mono);
-  text-transform: uppercase;
-  letter-spacing: .14em;
-}
-
-.nav {
-  min-height: 76px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  border-bottom: 1px solid #ffffff12;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-weight: 700;
-  letter-spacing: -.03em;
-}
-
-.brand-mark {
-  height: 34px;
-  width: 34px;
-  border: 1px solid #77f2c4a8;
-  border-radius: 9px;
-  display: grid;
-  place-items: center;
-  color: var(--accent);
-  font: 700 14px var(--mono);
-  box-shadow: 0 0 25px #77f2c41c;
-}
-
-.navlinks {
-  display: flex;
-  gap: 26px;
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.navlinks a:hover { color: var(--accent); }
-
-.nav-cta {
-  border: 1px solid #77f2c46b;
-  border-radius: 7px;
-  padding: 10px 14px;
-  color: var(--accent);
-  font: 12px var(--mono);
-  white-space: nowrap;
-}
-
-.hero {
-  padding: 92px 0 72px;
-  display: grid;
-  grid-template-columns: 1.35fr .65fr;
-  gap: 52px;
-  align-items: center;
-}
-
-.hero h1 {
-  font-size: clamp(42px, 6vw, 72px);
-  letter-spacing: -.065em;
-  line-height: 1.02;
-  margin: 18px 0 22px;
-  max-width: 800px;
-}
-
-.hero h1 span { color: var(--accent); }
-
-.lead {
-  font-size: 18px;
-  color: #bdc9d9;
-  max-width: 660px;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 30px;
-}
-
-.btn {
-  padding: 13px 17px;
-  border-radius: 7px;
-  font-weight: 650;
-  font-size: 13px;
-  border: 1px solid var(--line);
-  display: inline-flex;
-  gap: 10px;
-  align-items: center;
-  cursor: pointer;
-  transition: transform .2s ease;
-}
-
-.btn.primary {
-  background: var(--accent);
-  color: #08120f;
-  border-color: var(--accent);
-}
-
-.btn.secondary {
-  background: #ffffff05;
-  color: var(--text);
-}
-
-.btn:hover { transform: translateY(-1px); }
-
-.status-card {
-  background: linear-gradient(145deg, #132338, #0c121e);
-  border: 1px solid #2b405b;
-  border-radius: 14px;
-  padding: 23px;
-  box-shadow: 0 20px 80px #0003;
-}
-
-.status-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: var(--muted);
-  font: 11px var(--mono);
-  padding-bottom: 17px;
-  border-bottom: 1px solid var(--line);
-}
-
-.dot {
-  height: 7px;
-  width: 7px;
-  display: inline-block;
-  background: var(--accent);
-  border-radius: 50%;
-  box-shadow: 0 0 12px var(--accent);
-  margin-right: 7px;
-}
-
-.terminal {
-  font: 12px/2 var(--mono);
-  color: #b5c6dc;
-  padding: 17px 0;
-  overflow-wrap: anywhere;
-}
-
-.terminal .ok { color: var(--accent); }
-.terminal .key { color: var(--blue); }
-
-.mini-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
-.mini {
-  background: #080e19a8;
-  border: 1px solid #233148;
-  border-radius: 8px;
-  padding: 13px;
-}
-
-.mini strong {
-  display: block;
-  font-size: 23px;
-  letter-spacing: -.05em;
-}
-
-.mini span {
-  font: 10px var(--mono);
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: .08em;
-}
-
-.section {
-  padding: 76px 0;
-  border-top: 1px solid #ffffff0c;
-}
-
-.section-head {
-  display: flex;
-  justify-content: space-between;
-  gap: 25px;
-  align-items: end;
-  margin-bottom: 30px;
-}
-
-.section h2 {
-  font-size: clamp(28px, 4vw, 42px);
-  letter-spacing: -.05em;
-  line-height: 1.1;
-  margin: 10px 0;
-}
-
-.section-intro {
-  color: var(--muted);
-  max-width: 510px;
-  margin: 0;
-}
-
-.metrics {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-
-.metric {
-  padding: 22px;
-  border: 1px solid var(--line);
-  background: linear-gradient(150deg, #111c2b, #0c121e);
-  border-radius: 10px;
-}
-
-.metric strong {
-  font-size: clamp(28px, 4vw, 40px);
-  letter-spacing: -.06em;
-  display: block;
-  line-height: 1.2;
-}
-
-.metric strong em {
-  font-style: normal;
-  color: var(--accent);
-}
-
-.metric p {
-  font-size: 12px;
-  color: var(--muted);
-  margin: 10px 0 0;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-}
-
-.card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 11px;
-  padding: 24px;
-  position: relative;
-  overflow: hidden;
-}
-
-.card:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(var(--accent), transparent);
-  opacity: .7;
-}
-
-.card-head {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  align-items: start;
-}
-
-.card h3 {
-  font-size: 19px;
-  letter-spacing: -.03em;
-  margin: 8px 0;
-}
-
-.tag {
-  font: 10px var(--mono);
-  color: var(--accent);
-  border: 1px solid #77f2c444;
-  border-radius: 4px;
-  padding: 4px 7px;
-  white-space: nowrap;
-}
-
-.card p, .card li {
-  font-size: 13px;
-  color: var(--muted);
-}
-
-.card ul {
-  padding-left: 18px;
-  margin-bottom: 0;
-}
-
-.card li { padding: 4px 0; }
-
-.skills {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-}
-
-.skillbox {
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: #0e1624;
-  padding: 20px;
-}
-
-.skillbox h3 {
-  font-size: 14px;
-  margin: 0 0 14px;
-}
-
-.pills {
-  display: flex;
-  gap: 7px;
-  flex-wrap: wrap;
-}
-
-.pill {
-  font: 11px var(--mono);
-  padding: 7px 9px;
-  background: #192538;
-  border: 1px solid #2b3c53;
-  color: #c4d2e3;
-  border-radius: 5px;
-}
-
-.timeline {
-  border-left: 1px solid #34435b;
-  margin-left: 8px;
-  padding-left: 25px;
-}
-
-.role {
-  padding: 0 0 27px;
-  position: relative;
-}
-
-.role:before {
-  content: "";
-  position: absolute;
-  width: 9px;
-  height: 9px;
-  background: var(--accent);
-  border-radius: 50%;
-  left: -30px;
-  top: 8px;
-  box-shadow: 0 0 12px #77f2c455;
-}
-
-.role h3 {
-  margin: 0;
-  font-size: 18px;
-}
-
-.role .meta {
-  font: 11px var(--mono);
-  color: var(--accent);
-  margin: 5px 0 10px;
-}
-
-.role p {
-  color: var(--muted);
-  font-size: 13px;
-  max-width: 790px;
-  margin: 0;
-}
-
-.callout {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 30px;
-  border: 1px solid #38516a;
-  border-radius: 13px;
-  background: radial-gradient(ellipse at 100% 0%, #1c3b46, transparent 55%), #101a28;
-  padding: 32px;
-}
-
-.callout h2 { margin: 7px 0 10px; }
-
-.callout p {
-  color: var(--muted);
-  max-width: 620px;
-  margin: 0;
-}
-
-.contact-details {
-  margin-top: 14px !important;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 18px;
-}
-
-.contact-details a {
-  color: var(--accent);
-  overflow-wrap: anywhere;
-}
-
-.footer {
-  padding: 28px 0 40px;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  color: var(--muted);
-  font: 11px var(--mono);
-}
-
-.copy {
-  background: none;
-  border: none;
-  color: var(--muted);
-  cursor: pointer;
-  font: inherit;
-}
-
-.copy:hover { color: var(--accent); }
-
-.small-note {
-  font-size: 11px;
-  color: #8292a9;
-  margin-top: 16px;
-}
-
-@media(max-width: 800px) {
-  .hero {
-    grid-template-columns: 1fr;
-    padding: 65px 0 55px;
-    gap: 30px;
-  }
-
-  .status-card { max-width: 520px; }
-  .metrics { grid-template-columns: repeat(2, 1fr); }
-  .skills { grid-template-columns: 1fr 1fr; }
-  .navlinks { display: none; }
-  .section { padding: 56px 0; }
-  .section-head { display: block; }
-  .section-intro { margin-top: 14px; }
-  .callout { display: block; }
-  .callout .btn { margin-top: 20px; }
-}
-
-@media(max-width: 540px) {
-  .wrap { width: min(100% - 28px, 1120px); }
-  .hero h1 { font-size: 44px; }
-  .lead { font-size: 16px; }
-  .cards, .skills { grid-template-columns: 1fr; }
-  .metrics { gap: 8px; }
-  .metric { padding: 16px; }
-  .metric p { font-size: 11px; }
-  .footer { display: block; }
-  .footer span { display: block; margin-top: 8px; }
-  .nav-cta { padding: 8px 10px; }
-  .section-head { margin-bottom: 22px; }
-  .callout { padding: 22px; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d16">
+  <meta name="description" content="Taylor Barnett — Meta Production Operations Engineer specializing in infrastructure reliability, automation, and large-scale data-center systems.">
+  <title>Taylor Barnett | Infrastructure & Reliability Engineer</title>
+
+  <style>
+    :root {
+      --bg: #090d16;
+      --panel: #101827;
+      --line: #243147;
+      --text: #edf3fb;
+      --muted: #a1b0c5;
+      --accent: #77f2c4;
+      --blue: #8ab4ff;
+      --mono: "SFMono-Regular", Consolas, monospace;
+      --sans: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: radial-gradient(ellipse at 75% -10%, #1a3151, transparent 38%), var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover { color: var(--accent); }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    .mono { font-family: var(--mono); }
+
+    .eyebrow {
+      color: var(--accent);
+      font: 12px var(--mono);
+      text-transform: uppercase;
+      letter-spacing: .14em;
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-bottom: 1px solid #ffffff12;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: -.03em;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #77f2c4a8;
+      border-radius: 9px;
+      color: var(--accent);
+      font: 700 14px var(--mono);
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .nav-cta {
+      border: 1px solid #77f2c46b;
+      border-radius: 7px;
+      padding: 9px 13px;
+      color: var(--accent);
+      font: 12px var(--mono);
+      white-space: nowrap;
+    }
+
+    .hero {
+      padding: 85px 0 70px;
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      letter-spacing: -.065em;
+      line-height: 1.03;
+      margin: 18px 0 22px;
+    }
+
+    h1 span { color: var(--accent); }
+
+    .lead {
+      max-width: 650px;
+      color: #bdc9d9;
+      font-size: 18px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 27px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 15px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 650;
+      transition: transform .2s;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #08120f;
+      border-color: var(--accent);
+    }
+
+    .btn.secondary { background: #ffffff05; }
+
+    .status-card {
+      background: linear-gradient(145deg, #132338, #0c121e);
+      border: 1px solid #2b405b;
+      border-radius: 14px;
+      padding: 23px;
+      box-shadow: 0 20px 80px #0003;
+    }
+
+    .status-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font: 11px var(--mono);
+    }
+
+    .dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-right: 7px;
+    }
+
+    .terminal {
+      padding: 17px 0;
+      color: #b5c6dc;
+      font: 12px/2 var(--mono);
+      overflow-wrap: anywhere;
+    }
+
+    .key { color: var(--blue); }
+    .ok { color: var(--accent); }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .mini {
+      padding: 13px;
+      background: #080e19;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .mini strong {
+      display: block;
+      font-size: 21px;
+      line-height: 1.3;
+    }
+
+    .mini span {
+      color: var(--muted);
+      font: 10px var(--mono);
+      text-transform: uppercase;
+    }
+
+    .section {
+      padding: 70px 0;
+      border-top: 1px solid #ffffff0c;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 25px;
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: -.05em;
+      line-height: 1.15;
+      margin: 10px 0;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 510px;
+      margin: 0;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .metric {
+      padding: 21px;
+      background: linear-gradient(150deg, #111c2b, #0c121e);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: clamp(25px, 3vw, 37px);
+      letter-spacing: -.06em;
+      line-height: 1.2;
+    }
+
+    .metric strong em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .metric p {
+      color: var(--muted);
+      font-size: 12px;
+      margin: 10px 0 0;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      padding: 23px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 2px;
+      background: linear-gradient(var(--accent), transparent);
+    }
+
+    .card h3 { margin: 8px 0; }
+
+    .tag {
+      color: var(--accent);
+      border: 1px solid #77f2c444;
+      border-radius: 4px;
+      padding: 4px 7px;
+      font: 10px var(--mono);
+      white-space: nowrap;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .card li { padding: 4px 0; }
+
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 12px;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .skillbox {
+      background: #0e1624;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .skillbox h3 {
+      margin: 0 0 13px;
+      font-size: 14px;
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .pill {
+      padding: 6px 9px;
+      background: #192538;
+      border: 1px solid #2b3c53;
+      border-radius: 5px;
+      color: #c4d2e3;
+      font: 11px var(--mono);
+    }
+
+    .timeline {
+      border-left: 1px solid #34435b;
+      margin-left: 8px;
+      padding-left: 25px;
+    }
+
+    .role {
+      position: relative;
+      padding-bottom: 28px;
+    }
+
+    .role::before {
+      content: "";
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      left: -30px;
+      top: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .role h3 { margin: 0; }
+
+    .role .meta {
+      color: var(--accent);
+      font: 11px var(--mono);
+      margin: 5px 0 10px;
+    }
+
+    .role p {
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 790px;
+      margin: 0;
+    }
+
+    .callout {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 28px;
+      padding: 30px;
+      background: radial-gradient(ellipse at 100% 0%, #1c3b46, transparent 55%), #101a28;
+      border: 1px solid #38516a;
+      border-radius: 13px;
+    }
+
+    .callout h2 { margin: 8px 0; }
+
+    .callout p {
+      color: var(--muted);
+      max-width: 650px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      margin-top: 15px;
+      font-size: 13px;
+    }
+
+    .contact-links a { color: var(--accent); }
+
+    .small-note {
+      color: #8292a9;
+      font-size: 11px;
+      margin-top: 16px;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 28px 0 40px;
+      color: var(--muted);
+      font: 11px var(--mono);
+    }
+
+    .copy {
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .copy:hover { color: var(--accent); }
+
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; padding: 60px 0; }
+      .navlinks { display: none; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .skills { grid-template-columns: repeat(2, 1fr); }
+      .section-head { display: block; }
+      .section-intro { margin-top: 12px; }
+      .callout { display: block; }
+      .callout .btn { margin-top: 15px; }
+    }
+
+    @media (max-width: 540px) {
+      .wrap { width: calc(100% - 28px); }
+      .hero h1 { font-size: 43px; }
+      .lead { font-size: 16px; }
+      .cards, .skills { grid-template-columns: 1fr; }
+      .metric { padding: 15px; }
+      .section { padding: 52px 0; }
+      .callout { padding: 21px; }
+      .mini strong { font-size: 18px; }
+    }
+  </style>
 </head>
 
 <body>
@@ -514,36 +476,47 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <a href="#impact">Impact</a>
     <a href="#work">Experience</a>
     <a href="#systems">Technical</a>
-    <a href="#approach">Approach</a>
+    <a href="#approach">About</a>
   </nav>
 
-  <a class="nav-cta" href="mailto:tbarnett281@gmail.com?subject=Infrastructure%20Engineering%20Opportunity">LET'S TALK ↗</a>
+  <a class="nav-cta" href="mailto:tbarnett281@gmail.com?subject=Infrastructure%20Engineering%20Opportunity">
+    LET'S TALK ↗
+  </a>
 </header>
 
 <main id="top">
   <section class="wrap hero">
     <div>
       <div class="eyebrow">Production engineering · Infrastructure reliability · Automation</div>
+
       <h1>Keeping critical infrastructure <span>reliable at scale.</span></h1>
 
       <p class="lead">
-        I’m Taylor Barnett, an infrastructure and production operations engineer at Meta.
-        I lead engineers, automate operational work, and support data-center systems
-        powering large-scale compute.
+        I’m Taylor Barnett, an IC5 Production Operations Engineer at Meta.
+        I lead engineers, automate operational work, and support data-center
+        systems powering large-scale compute.
       </p>
 
-      <div class="hero-actions">
-        <a class="btn primary" href="#impact">Explore my impact <span>↓</span></a>
-        <a class="btn secondary" href="mailto:tbarnett281@gmail.com?subject=Engineering%20Opportunity">Email me ↗</a>
-        <a class="btn secondary" href="tel:+17132135618">Call (713) 213-5618</a>
+      <div class="actions">
+        <a class="btn primary" href="#impact">Explore my impact ↓</a>
+        <a class="btn secondary" href="mailto:tbarnett281@gmail.com">Email me ↗</a>
+        <a class="btn secondary" href="tel:+17132135618">Call me ↗</a>
       </div>
 
-      <p class="small-note">IC5 Production Operations Engineer · Team leadership · Mission-critical systems</p>
+      <p class="small-note">
+        IC5 Production Operations Engineer · Team leadership · Mission-critical systems
+      </p>
+
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/in/taylorbarnett281/"
+           target="_blank" rel="noopener noreferrer">LinkedIn profile ↗</a>
+        <a href="mailto:tbarnett281@gmail.com">tbarnett281@gmail.com</a>
+      </div>
     </div>
 
-    <aside class="status-card" aria-label="Infrastructure summary">
+    <aside class="status-card" aria-label="Infrastructure profile">
       <div class="status-top">
-        <span><i class="dot"></i> SYSTEM PROFILE</span>
+        <span><i class="dot"></i>SYSTEM PROFILE</span>
         <span>TB / 001</span>
       </div>
 
@@ -557,8 +530,14 @@ a, button { -webkit-tap-highlight-color: transparent; }
       </div>
 
       <div class="mini-grid">
-        <div class="mini"><strong>15K+</strong><span>Servers supported</span></div>
-        <div class="mini"><strong>Multi-site</strong><span>Data-center operations</span></div>
+        <div class="mini">
+          <strong>15M+</strong>
+          <span>Servers supported</span>
+        </div>
+        <div class="mini">
+          <strong>100K+</strong>
+          <span>Autonomous tasks</span>
+        </div>
       </div>
     </aside>
   </section>
@@ -571,20 +550,15 @@ a, button { -webkit-tap-highlight-color: transparent; }
           <h2>Engineering impact, not just activity.</h2>
         </div>
         <p class="section-intro">
-          Operational excellence should be visible in the numbers: less toil,
-          faster workflows, and repeatable launches.
+          Operational excellence should be visible in the numbers:
+          less toil, faster workflows, and repeatable launches.
         </p>
       </div>
 
       <div class="metrics">
         <article class="metric">
-          <strong>15K<em>+</em></strong>
+          <strong>15 million <em>+</em></strong>
           <p>Servers supported through large-scale tooling and operational processes.</p>
-        </article>
-
-        <article class="metric">
-          <strong>Multi-site</strong>
-          <p>Data-center delivery and mission-critical infrastructure operations.</p>
         </article>
 
         <article class="metric">
@@ -595,6 +569,11 @@ a, button { -webkit-tap-highlight-color: transparent; }
         <article class="metric">
           <strong>50<em>%</em></strong>
           <p>Reduction in ticket queue time after a SQL-driven process improvement.</p>
+        </article>
+
+        <article class="metric">
+          <strong>Multi-site</strong>
+          <p>Data-center delivery, operational readiness, and infrastructure execution.</p>
         </article>
       </div>
     </div>
@@ -608,7 +587,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
           <h2>Build systems that scale.</h2>
         </div>
         <p class="section-intro">
-          A blend of people leadership, operational automation, fleet health,
+          People leadership, operational automation, fleet health,
           and data-center execution.
         </p>
       </div>
@@ -628,7 +607,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
           </p>
           <ul>
             <li>Design operations around repeatability and measurable outcomes.</li>
-            <li>Use automation to improve consistency and free engineers for higher-value work.</li>
+            <li>Improve consistency and free engineers for higher-value work.</li>
           </ul>
         </article>
 
@@ -642,11 +621,11 @@ a, button { -webkit-tap-highlight-color: transparent; }
           </div>
           <p>
             Improved a SQL-backed operational workflow, reducing ticket queue time
-            by 50% within three months; the improvement was deployed globally.
+            by 50% within three months. The improvement was deployed globally.
           </p>
           <ul>
             <li>Identify bottlenecks with operational data.</li>
-            <li>Turn a local improvement into a repeatable global process.</li>
+            <li>Turn local improvements into repeatable processes.</li>
           </ul>
         </article>
 
@@ -656,11 +635,11 @@ a, button { -webkit-tap-highlight-color: transparent; }
               <div class="eyebrow">Technical leadership</div>
               <h3>Build teams that can execute</h3>
             </div>
-            <span class="tag">6 ENGINEERS</span>
+            <span class="tag">TEAM LEADERSHIP</span>
           </div>
           <p>
-            Lead a team of six engineers while supporting large-scale,
-            high-availability infrastructure operations.
+            Lead engineers while supporting large-scale, high-availability
+            infrastructure operations.
           </p>
           <ul>
             <li>Recruit, onboard, and develop engineers.</li>
@@ -678,11 +657,11 @@ a, button { -webkit-tap-highlight-color: transparent; }
           </div>
           <p>
             Supported data-center build-outs and go-live readiness, including
-            recruiting and training teams across three locations.
+            recruiting and training teams across multiple locations.
           </p>
           <ul>
             <li>Coordinate technical readiness across teams.</li>
-            <li>Create launch plans that can be reused as regional best practice.</li>
+            <li>Develop launch plans and reusable operational practices.</li>
           </ul>
         </article>
       </div>
@@ -697,8 +676,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
           <h2>Operate across the stack.</h2>
         </div>
         <p class="section-intro">
-          The goal is not to collect tools. It’s to use the right tools to make
-          infrastructure safer, more observable, and easier to operate.
+          Use the right tools to make infrastructure safer,
+          more observable, and easier to operate.
         </p>
       </div>
 
@@ -720,7 +699,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
             <span class="pill">Data centers</span>
             <span class="pill">Server fleet operations</span>
             <span class="pill">GPU infrastructure</span>
-            <span class="pill">Liquid cooling</span>
+            <span class="pill">Hardware troubleshooting</span>
           </div>
         </article>
 
@@ -764,12 +743,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
           </div>
         </article>
       </div>
-
-      <p class="small-note">
-        This skills list is based on the experience shared for this portfolio.
-        Add specific tools, cloud platforms, CI/CD systems, and certifications
-        only where you have hands-on experience.
-      </p>
     </div>
   </section>
 
@@ -785,12 +758,11 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <div class="timeline">
         <article class="role">
           <h3>Meta — IC5 Production Operations Engineer</h3>
-          <div class="meta">INFRASTRUCTURE OPERATIONS · TEAM LEADERSHIP · LARGE-SCALE COMPUTE</div>
+          <div class="meta">INFRASTRUCTURE OPERATIONS · AUTOMATION · LARGE-SCALE COMPUTE</div>
           <p>
-            Lead six engineers and support large-scale data-center operations
-            across a fleet of more than 15,000 servers. Focus areas include
-            operational automation, reliability, incident response, GPU
-            infrastructure, and hardware troubleshooting.
+            Support large-scale infrastructure operations with an emphasis on
+            operational automation, reliability, incident response, and hardware
+            troubleshooting across a fleet of more than 15 million servers.
           </p>
         </article>
 
@@ -815,13 +787,16 @@ a, button { -webkit-tap-highlight-color: transparent; }
             and technical leadership can have measurable impact.
           </p>
 
-          <p class="contact-details">
+          <div class="contact-links">
             <a href="tel:+17132135618">(713) 213-5618</a>
             <a href="mailto:tbarnett281@gmail.com">tbarnett281@gmail.com</a>
-          </p>
+            <a href="https://www.linkedin.com/in/taylorbarnett281/"
+               target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a>
+          </div>
         </div>
 
-        <a class="btn primary" href="mailto:tbarnett281@gmail.com?subject=Infrastructure%20Engineering%20Opportunity">
+        <a class="btn primary"
+           href="mailto:tbarnett281@gmail.com?subject=Infrastructure%20Engineering%20Opportunity">
           Start a conversation ↗
         </a>
       </div>
@@ -831,25 +806,29 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 <footer class="wrap footer">
   <span>© <span id="year"></span> Taylor Barnett · Built for reliability.</span>
+
   <span>
     INFRASTRUCTURE / AUTOMATION / SCALE
-    <button class="copy" id="copyEmail" title="Copy email address">· COPY EMAIL</button>
+    · <a href="https://www.linkedin.com/in/taylorbarnett281/"
+         target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a>
+    · <button class="copy" id="copyEmail">COPY EMAIL</button>
   </span>
 </footer>
 
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("year").textContent = new Date().getFullYear();
 
-document.getElementById("copyEmail").addEventListener("click", async () => {
-  const email = "tbarnett281@gmail.com";
+  document.getElementById("copyEmail").addEventListener("click", async () => {
+    const email = "tbarnett281@gmail.com";
+    const button = document.getElementById("copyEmail");
 
-  try {
-    await navigator.clipboard.writeText(email);
-    document.getElementById("copyEmail").textContent = "· COPIED";
-  } catch {
-    window.location.href = "mailto:" + email;
-  }
-});
+    try {
+      await navigator.clipboard.writeText(email);
+      button.textContent = "COPIED!";
+    } catch {
+      window.location.href = "mailto:" + email;
+    }
+  });
 </script>
 
 </body>
